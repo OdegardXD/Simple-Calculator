@@ -4,7 +4,7 @@
 // go over all code again and make sure comments exist
 // add %
 
-namespace kalkulator_oppgave_2a
+namespace SimpleCalculator
 {
     public partial class Form1 : Form
     {

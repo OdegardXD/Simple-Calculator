@@ -1,4 +1,4 @@
-﻿namespace kalkulator_oppgave_2a
+﻿namespace SimpleCalculator
 {
     partial class Form1
     {
