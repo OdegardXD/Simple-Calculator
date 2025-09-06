@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             LayoutPanel = new TableLayoutPanel();
+            MathPercent = new Button();
             Math1 = new Button();
             Math2 = new Button();
             Math3 = new Button();
@@ -42,12 +43,12 @@
             MathMinus = new Button();
             MathPlus = new Button();
             MathEquals = new Button();
-            MathDot = new Button();
             Math0 = new Button();
             MathClear = new Button();
             MathDivide = new Button();
             MathBackspace = new Button();
             HelpButton = new Button();
+            MathDot = new Button();
             MathResult = new Label();
             MathTypeLabel = new Label();
             LayoutPanel.SuspendLayout();
@@ -61,6 +62,7 @@
             LayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
             LayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
             LayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            LayoutPanel.Controls.Add(MathPercent, 2, 3);
             LayoutPanel.Controls.Add(Math1, 0, 0);
             LayoutPanel.Controls.Add(Math2, 1, 0);
             LayoutPanel.Controls.Add(Math3, 2, 0);
@@ -74,13 +76,13 @@
             LayoutPanel.Controls.Add(MathMinus, 3, 1);
             LayoutPanel.Controls.Add(MathPlus, 3, 2);
             LayoutPanel.Controls.Add(MathEquals, 3, 3);
-            LayoutPanel.Controls.Add(MathDot, 2, 3);
             LayoutPanel.Controls.Add(Math0, 1, 3);
             LayoutPanel.Controls.Add(MathClear, 4, 1);
             LayoutPanel.Controls.Add(MathDivide, 4, 0);
             LayoutPanel.Controls.Add(MathBackspace, 4, 2);
             LayoutPanel.Controls.Add(HelpButton, 4, 3);
-            LayoutPanel.Location = new Point(259, 115);
+            LayoutPanel.Controls.Add(MathDot, 0, 3);
+            LayoutPanel.Location = new Point(35, 73);
             LayoutPanel.Name = "LayoutPanel";
             LayoutPanel.RowCount = 4;
             LayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 25.0000038F));
@@ -91,9 +93,18 @@
             LayoutPanel.TabIndex = 0;
             LayoutPanel.Paint += tableLayoutPanel1_Paint;
             // 
+            // MathPercent
+            // 
+            MathPercent.Location = new Point(167, 249);
+            MathPercent.Name = "MathPercent";
+            MathPercent.Size = new Size(75, 74);
+            MathPercent.TabIndex = 3;
+            MathPercent.Text = "%";
+            MathPercent.UseVisualStyleBackColor = true;
+            MathPercent.Click += MathPercent_Click;
+            // 
             // Math1
             // 
-            Math1.FlatStyle = FlatStyle.Flat;
             Math1.Font = new Font("Segoe UI", 12F);
             Math1.Location = new Point(3, 3);
             Math1.Name = "Math1";
@@ -235,17 +246,6 @@
             MathEquals.UseVisualStyleBackColor = true;
             MathEquals.Click += MathEquals_Click;
             // 
-            // MathDot
-            // 
-            MathDot.Font = new Font("Segoe UI", 12F);
-            MathDot.Location = new Point(167, 249);
-            MathDot.Name = "MathDot";
-            MathDot.Size = new Size(75, 74);
-            MathDot.TabIndex = 14;
-            MathDot.Text = ".";
-            MathDot.UseVisualStyleBackColor = true;
-            MathDot.Click += MathDot_Click;
-            // 
             // Math0
             // 
             Math0.Font = new Font("Segoe UI", 12F);
@@ -301,11 +301,22 @@
             HelpButton.UseVisualStyleBackColor = true;
             HelpButton.Click += HelpButton_Click;
             // 
+            // MathDot
+            // 
+            MathDot.Font = new Font("Segoe UI", 12F);
+            MathDot.Location = new Point(3, 249);
+            MathDot.Name = "MathDot";
+            MathDot.Size = new Size(75, 74);
+            MathDot.TabIndex = 14;
+            MathDot.Text = ".";
+            MathDot.UseVisualStyleBackColor = true;
+            MathDot.Click += MathDot_Click;
+            // 
             // MathResult
             // 
             MathResult.AutoSize = true;
             MathResult.BorderStyle = BorderStyle.FixedSingle;
-            MathResult.Location = new Point(236, 51);
+            MathResult.Location = new Point(12, 9);
             MathResult.MinimumSize = new Size(500, 50);
             MathResult.Name = "MathResult";
             MathResult.Size = new Size(500, 50);
@@ -315,7 +326,7 @@
             // 
             MathTypeLabel.BorderStyle = BorderStyle.FixedSingle;
             MathTypeLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            MathTypeLabel.Location = new Point(740, 74);
+            MathTypeLabel.Location = new Point(516, 32);
             MathTypeLabel.Name = "MathTypeLabel";
             MathTypeLabel.Size = new Size(22, 27);
             MathTypeLabel.TabIndex = 2;
@@ -331,7 +342,6 @@
             Name = "Form1";
             Text = "Calculator - Made By Odegard";
             Load += Form1_Load;
-            Click += NumberButtonClick;
             LayoutPanel.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
@@ -361,5 +371,6 @@
         private Button HelpButton;
         private Label MathResult;
         private Label MathTypeLabel;
+        private Button MathPercent;
     }
 }

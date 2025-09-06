@@ -2,7 +2,9 @@
 // fix ui
 // double test everything
 // go over all code again and make sure comments exist
-// add %
+// fix the % button and make it work properly
+// make the calculator support 3 or more different numbers??
+// fix calc crashing after clicking plus or something and then equals
 
 namespace SimpleCalculator
 {
@@ -98,16 +100,34 @@ namespace SimpleCalculator
         // dude help this is complicated my brain hurts aaaaa
 
         //
+        // Percentage Button
+        //
+
+        private void MathPercent_Click(object sender, EventArgs e) // percentage button thingy
+        { 
+            double currentValue = double.Parse(MathResult.Text); // sets currentValue to whatever MathResult is but also "parses" it into a integer
+            double result = currentValue / 100; // grabs result and divides it by 100
+            MathResult.Text = result.ToString(); // gets result, translates it into string and slaps it in the result box
+        }
+
+        //
         // Math Type Button
         //
 
         private void MathOperatorHandler(object sender, EventArgs e) // i made this by selecting +, -, / and * and opening up properties in the bottom right and making a new click event handler
         {
-            firstNumber = double.Parse(MathResult.Text); // remembers what the first number was
-            operation = ((Button)sender).Text; // remembers what math type the user selected
-            MathResult.Text = (""); // clears the mathresult label
-            isOperationClicked = true; // sets isoperationclicked to true
-            MathTypeLabel.Text = operation; // sets the mathtypelabel as the math type that the user selected by checking what the value of operation is
+            if (!string.IsNullOrEmpty(MathResult.Text))
+            {
+                firstNumber = double.Parse(MathResult.Text); // remembers what the first number was
+                operation = ((Button)sender).Text; // remembers what math type the user selected
+                MathResult.Text = (""); // clears the mathresult label
+                isOperationClicked = true; // sets isoperationclicked to true
+                MathTypeLabel.Text = operation; // sets the mathtypelabel as the math type that the user selected by checking what the value of operation is
+            }
+            else
+            {
+                MessageBox.Show("Please enter in numbers before you attempt to do calculations...");
+            }
         }
 
         //
