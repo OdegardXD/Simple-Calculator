@@ -179,7 +179,7 @@ namespace SimpleCalculator
                     else
                     {
                         MathResult.Text = "Error"; // u cannot divide something with 0 smartass
-                        return; 
+                        return;
                     }
                     break;
             }
@@ -202,6 +202,9 @@ namespace SimpleCalculator
             // paint? paint. PAINT! (idk why this is here or what its doing)
         }
 
+        private void MathResult_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 } // huh
