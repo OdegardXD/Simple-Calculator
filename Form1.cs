@@ -1,10 +1,6 @@
 // todo:
-// fix ui
 // double test everything
 // go over all code again and make sure comments exist
-// fix help button to not be rude
-// fix numbers going off screen
-
 namespace SimpleCalculator
 {
     public partial class Form1 : Form
@@ -29,9 +25,9 @@ namespace SimpleCalculator
         // Help Button
         //
 
-        private void HelpButton_Click(object sender, EventArgs e) // a useless help button
+        private void HelpButton_Click(object sender, EventArgs e) // a help button
         {
-            MessageBox.Show("If you need help using a calculator then you shouldnt be using one...");
+            MessageBox.Show("Enter a number then click a math type\nEnter another number and then either click a new math type or click equals to get your answer", "Help");
         }
 
         //
@@ -56,7 +52,7 @@ namespace SimpleCalculator
 
         private void MathClear_Click(object sender, EventArgs e) // clear MathResult button
         {
-            if (MathResult.Text.Length > 0)  // sjekker om at boksen er tom og vis den ikke er tom så kjører den koden nedenfor
+            if (MathResult.Text.Length > 0)  // checks if the mathresult is empty before proceeding
             {
                 MathResult.Text = (""); // clears MathResult
                 operation = ""; // sets operaion to nothing aka the thing that remembers what was clicked like +, -, * or /
@@ -86,14 +82,21 @@ namespace SimpleCalculator
         {
             string NumberInButton = ((Button)sender).Text; // this gets what number was clicked
 
-            if (isOperationClicked)
-            {
-                isOperationClicked = false; // if isOperationClicked = true then make it false
-                MathResult.Text += NumberInButton; // add the number that was clicked from string NumberInButton
+            if (MathResult.Text.Length < 20) // adds a check to check if there is less than 20 numbers in box. if there is less than 20 then add number if more than 20 then show error
+            { 
+                if (isOperationClicked)
+                {   
+                    isOperationClicked = false; // if isOperationClicked = true then make it false
+                    MathResult.Text += NumberInButton; // add the number that was clicked from string NumberInButton
+                }
+                else
+                {
+                    MathResult.Text += NumberInButton; // add the number that was clicked from string NumberInButton
+                }
             }
-            else
+            else 
             {
-                MathResult.Text += NumberInButton; // add the number that was clicked from string NumberInButton
+                MessageBox.Show("There are more than 20 numbers. Unable to fit more in box.", "Error");
             }
         }
         // dude help this is complicated my brain hurts aaaaa
@@ -104,7 +107,7 @@ namespace SimpleCalculator
 
         private void MathPercent_Click(object sender, EventArgs e) // percentage button thingy
         {
-            if (string.IsNullOrEmpty(MathResult.Text))
+            if (string.IsNullOrEmpty(MathResult.Text)) // checks if mathresult is empty
             {
                 MessageBox.Show("Please enter a number first.");
                 return;
@@ -127,7 +130,8 @@ namespace SimpleCalculator
             }
             if (!string.IsNullOrEmpty(operation)) // checks if there isnt a active operation
             {
-                MathEquals_Click(sender, e); // if there is a operation waiting then do the calculation now
+                // if there is a operation waiting then do the calculation now
+                MathEquals_Click(sender, e); // runs the mathequals code
                 // when the calculation has been completed store the new numbers
                 firstNumber = double.Parse(MathResult.Text); // make firstnumber into double data and stores the current result
                 operation = ((Button)sender).Text; // set the new operation
