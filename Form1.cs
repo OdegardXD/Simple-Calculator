@@ -129,7 +129,7 @@ namespace SimpleCalculator
             {
                 MathEquals_Click(sender, e); // if there is a operation waiting then do the calculation now
                 // when the calculation has been completed store the new numbers
-                firstNumber = double.Parse(MathResult.Text); // make firstnumber into double data
+                firstNumber = double.Parse(MathResult.Text); // make firstnumber into double data and stores the current result
                 operation = ((Button)sender).Text; // set the new operation
                 isOperationClicked = true; // set isoperationclicked to true
                 MathTypeLabel.Text = operation; // put the new selected operation in the mathlabeltype
