@@ -2,10 +2,10 @@
 // fix ui
 // double test everything
 // go over all code again and make sure comments exist
-// fix the % button and make it work properly
 // make the calculator support 3 or more different numbers?? (thinking of rewriting all the code so it can make new variables as the user uses and then clears all the variables when the user clicks clear)
 // fix calc crashing after clicking plus or something and then equals
 // fix help button to not be rude
+// the whole equals calculation code is broken but im too fucking tired to fix this shit. i just need to reorganize the if statements
 
 namespace SimpleCalculator
 {
@@ -137,14 +137,9 @@ namespace SimpleCalculator
 
         private void MathEquals_Click(object sender, EventArgs e) // 
         {
-            // Get the second number from the display
             double secondNumber = double.Parse(MathResult.Text); // grabs whatever is in mathresult and converts it to "double" data type. reason for why im using double here is because it supports decimals
             double result = 0; // sets the result variable as 0 temporarily
-            if (operation == "") // if there is no +, -, * or / then show a message box that tells the user that they need to select one
-            {
-                MessageBox.Show("You need to select the type of calculation!\nFor example '+', '*', '-' or '/'", "Error!");
-            }
-            else
+            if (!string.IsNullOrEmpty(MathResult.Text)) 
             {
                 switch (operation)
                 {
@@ -170,6 +165,13 @@ namespace SimpleCalculator
                         }
                         break; // exit the switch
                 }
+            }
+            else if (operation == "") // if there is no +, -, * or / then show a message box that tells the user that they need to select one
+                {
+                    MessageBox.Show("You need to select the type of calculation!\nFor example '+', '*', '-' or '/'", "Error!");
+                }
+            else
+            {
                 // Display the final result
                 MathResult.Text = result.ToString(); // converts the math result from double data to string data and puts it in MathResult
 
