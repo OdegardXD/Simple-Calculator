@@ -102,7 +102,12 @@ namespace SimpleCalculator
         //
 
         private void MathPercent_Click(object sender, EventArgs e) // percentage button thingy
-        { 
+        {
+            if (string.IsNullOrEmpty(MathResult.Text))
+            {
+                MessageBox.Show("Please enter a number first.");
+                return;
+            }
             double currentValue = double.Parse(MathResult.Text); // sets currentValue to whatever MathResult is but also "parses" it into a integer
             double result = currentValue / 100; // grabs result and divides it by 100
             MathResult.Text = result.ToString(); // gets result, translates it into string and slaps it in the result box
@@ -114,6 +119,11 @@ namespace SimpleCalculator
 
         private void MathOperatorHandler(object sender, EventArgs e) // when thing is clicked, check if old thing is setup, if yes then do old calculation and then set the new thingy as active operation, if no set the thingy as the new active
         {
+            if (string.IsNullOrEmpty(MathResult.Text))
+            {
+                MessageBox.Show("Please enter a number first.");
+                return;
+            }
             if (!string.IsNullOrEmpty(operation)) // checks if there isnt a active operation
             {
                 MathEquals_Click(sender, e); // if there is a operation waiting then do the calculation now
