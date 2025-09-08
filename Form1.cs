@@ -2,10 +2,7 @@
 // fix ui
 // double test everything
 // go over all code again and make sure comments exist
-// make the calculator support 3 or more different numbers?? (thinking of rewriting all the code so it can make new variables as the user uses and then clears all the variables when the user clicks clear)
-// fix calc crashing after clicking plus or something and then equals
 // fix help button to not be rude
-// the whole equals calculation code is broken but im too fucking tired to fix this shit. i just need to reorganize the if statements
 
 namespace SimpleCalculator
 {
@@ -115,9 +112,19 @@ namespace SimpleCalculator
         // Math Type Button
         //
 
-        private void MathOperatorHandler(object sender, EventArgs e) // i made this by selecting +, -, / and * and opening up properties in the bottom right and making a new click event handler
+        private void MathOperatorHandler(object sender, EventArgs e) // when thing is clicked, check if old thing is setup, if yes then do old calculation and then set the new thingy as active operation, if no set the thingy as the new active
         {
-            if (!string.IsNullOrEmpty(MathResult.Text))
+            if (!string.IsNullOrEmpty(operation)) // checks if there isnt a active operation
+            {
+                MathEquals_Click(sender, e); // if there is a operation waiting then do the calculation now
+                // when the calculation has been completed store the new numbers
+                firstNumber = double.Parse(MathResult.Text); // make firstnumber into double data
+                operation = ((Button)sender).Text; // set the new operation
+                isOperationClicked = true; // set isoperationclicked to true
+                MathTypeLabel.Text = operation; // put the new selected operation in the mathlabeltype
+                MathResult.Text = ""; // sets the result to nothing
+            }
+            else
             {
                 firstNumber = double.Parse(MathResult.Text); // remembers what the first number was
                 operation = ((Button)sender).Text; // remembers what math type the user selected
@@ -125,60 +132,55 @@ namespace SimpleCalculator
                 isOperationClicked = true; // sets isoperationclicked to true
                 MathTypeLabel.Text = operation; // sets the mathtypelabel as the math type that the user selected by checking what the value of operation is
             }
-            else
-            {
-                MessageBox.Show("Please enter in numbers before you attempt to do calculations...");
-            }
         }
 
         //
         // Main Math Code (when equals gets clicked)
         //
 
-        private void MathEquals_Click(object sender, EventArgs e) // 
+        private void MathEquals_Click(object sender, EventArgs e) // on equals click:
         {
-            double secondNumber = double.Parse(MathResult.Text); // grabs whatever is in mathresult and converts it to "double" data type. reason for why im using double here is because it supports decimals
-            double result = 0; // sets the result variable as 0 temporarily
-            if (!string.IsNullOrEmpty(MathResult.Text)) 
+            if (string.IsNullOrEmpty(MathResult.Text)) // checks if mathresult is empty. if it is then show a error message. if not then continue
             {
-                switch (operation)
-                {
-                    case "+":
-                        result = firstNumber + secondNumber; // if + was clicked then it will plus both numbers after = was pressed
-                        break;
-                    case "-":
-                        result = firstNumber - secondNumber; // if - was clicked then it will minus the numbers after = is clicked
-                        break;
-                    case "X":
-                        result = firstNumber * secondNumber; // if * was clicked then it will multiply. man its getting annoying rewriting this over and fucking over again WHEN ITS SELF EXPLANATORY BUT I LIKE HAVING COMMENTS >:(
-                        break;
-                    case "/":
-                        // checks if the user is fucking around by checking if the user tried dividing something with 0 like a dumbass
-                        if (secondNumber != 0) // if the second number isnt (it checks if it isnt because of the !) 0 then:
-                        {
-                            result = firstNumber / secondNumber; // if / was clicked then you know what no you already know what it does
-                        }
-                        else // there is so much fucking code i cannot keep track of this
-                        {
-                            MathResult.Text = "Error"; // if the user did attempt to divide something with 0 then show this message in the mathresult
-                            return; // Exit the method
-                        }
-                        break; // exit the switch
-                }
+                MessageBox.Show("Please enter a number to perform a calculation.");
+                return; // exit the method to stop a crash from happening
             }
-            else if (operation == "") // if there is no +, -, * or / then show a message box that tells the user that they need to select one
-                {
-                    MessageBox.Show("You need to select the type of calculation!\nFor example '+', '*', '-' or '/'", "Error!");
-                }
-            else
-            {
-                // Display the final result
-                MathResult.Text = result.ToString(); // converts the math result from double data to string data and puts it in MathResult
 
-                // Reset the operation flag for the next calculation
-                isOperationClicked = false; // sets isoperationclicked to false
-                MathTypeLabel.Text = ""; // clears the mathtypelabel
+            double secondNumber = double.Parse(MathResult.Text); // sets the second number as what is in the mathresult box
+            double result = 0; // sets result to 0 temporarily
+
+            // im using a switch statement here as i feel like that makes it easier on both coding and just readability
+            switch (operation)
+            {
+                case "+": // if + clicked then plusses both numbers. i aint gonna sit here and add comments to each and every one and you can guess what the others do anyway
+                    result = firstNumber + secondNumber;
+                    break; // break exits this switch and stops the other code like * or / from executing
+                case "-":
+                    result = firstNumber - secondNumber;
+                    break;
+                case "X":
+                    result = firstNumber * secondNumber;
+                    break;
+                case "/":
+                    if (secondNumber != 0)
+                    {
+                        result = firstNumber / secondNumber;
+                    }
+                    else
+                    {
+                        MathResult.Text = "Error"; // u cannot divide something with 0 smartass
+                        return; 
+                    }
+                    break;
             }
+
+            // displays the final result
+            MathResult.Text = result.ToString();
+
+            // now that equals is clicked it can clear all the old stuff
+            operation = ""; // clear the operation
+            isOperationClicked = false; // set isoperationclicked to false
+            MathTypeLabel.Text = ""; // empties mathtypelabel
         }
 
         //
@@ -187,7 +189,7 @@ namespace SimpleCalculator
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
-            // paint? paint. PAINT!
+            // paint? paint. PAINT! (idk why this is here or what its doing)
         }
 
 
