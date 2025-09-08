@@ -3,6 +3,7 @@
 // double test everything
 // go over all code again and make sure comments exist
 // fix help button to not be rude
+// fix numbers going off screen
 
 namespace SimpleCalculator
 {
@@ -204,7 +205,7 @@ namespace SimpleCalculator
 
         private void MathResult_Click(object sender, EventArgs e)
         {
-
+            // how the hell did this get here
         }
     }
 } // huh

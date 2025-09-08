@@ -29,26 +29,26 @@
         private void InitializeComponent()
         {
             LayoutPanel = new TableLayoutPanel();
-            MathPercent = new Button();
             Math1 = new Button();
             Math2 = new Button();
+            HelpButton = new Button();
+            MathBackspace = new Button();
             Math3 = new Button();
             Math4 = new Button();
             Math5 = new Button();
             Math6 = new Button();
-            Math7 = new Button();
-            Math8 = new Button();
-            Math9 = new Button();
-            MathMultiply = new Button();
-            MathMinus = new Button();
-            MathPlus = new Button();
-            MathEquals = new Button();
             Math0 = new Button();
-            MathClear = new Button();
-            MathDivide = new Button();
-            MathBackspace = new Button();
-            HelpButton = new Button();
             MathDot = new Button();
+            Math9 = new Button();
+            Math8 = new Button();
+            Math7 = new Button();
+            MathEquals = new Button();
+            MathPlus = new Button();
+            MathMinus = new Button();
+            MathMultiply = new Button();
+            MathDivide = new Button();
+            MathClear = new Button();
+            MathPercent = new Button();
             MathResult = new Label();
             MathTypeLabel = new Label();
             LayoutPanel.SuspendLayout();
@@ -93,16 +93,6 @@
             LayoutPanel.TabIndex = 0;
             LayoutPanel.Paint += tableLayoutPanel1_Paint;
             // 
-            // MathPercent
-            // 
-            MathPercent.Location = new Point(189, 54);
-            MathPercent.Name = "MathPercent";
-            MathPercent.Size = new Size(56, 45);
-            MathPercent.TabIndex = 3;
-            MathPercent.Text = "%";
-            MathPercent.UseVisualStyleBackColor = true;
-            MathPercent.Click += MathPercent_Click;
-            // 
             // Math1
             // 
             Math1.Font = new Font("Segoe UI", 12F);
@@ -124,6 +114,28 @@
             Math2.Text = "2";
             Math2.UseVisualStyleBackColor = true;
             Math2.Click += NumberButtonClick;
+            // 
+            // HelpButton
+            // 
+            HelpButton.Font = new Font("Segoe UI", 12F);
+            HelpButton.Location = new Point(189, 105);
+            HelpButton.Name = "HelpButton";
+            HelpButton.Size = new Size(56, 45);
+            HelpButton.TabIndex = 19;
+            HelpButton.Text = "Help";
+            HelpButton.UseVisualStyleBackColor = true;
+            HelpButton.Click += HelpButton_Click;
+            // 
+            // MathBackspace
+            // 
+            MathBackspace.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            MathBackspace.Location = new Point(127, 156);
+            MathBackspace.Name = "MathBackspace";
+            MathBackspace.Size = new Size(56, 48);
+            MathBackspace.TabIndex = 18;
+            MathBackspace.Text = "←";
+            MathBackspace.UseVisualStyleBackColor = true;
+            MathBackspace.Click += MathBackspace_Click;
             // 
             // Math3
             // 
@@ -169,83 +181,6 @@
             Math6.UseVisualStyleBackColor = true;
             Math6.Click += NumberButtonClick;
             // 
-            // Math7
-            // 
-            Math7.Font = new Font("Segoe UI", 12F);
-            Math7.Location = new Point(3, 3);
-            Math7.Name = "Math7";
-            Math7.Size = new Size(56, 45);
-            Math7.TabIndex = 7;
-            Math7.Text = "7";
-            Math7.UseVisualStyleBackColor = true;
-            Math7.Click += NumberButtonClick;
-            // 
-            // Math8
-            // 
-            Math8.Font = new Font("Segoe UI", 12F);
-            Math8.Location = new Point(65, 3);
-            Math8.Name = "Math8";
-            Math8.Size = new Size(56, 45);
-            Math8.TabIndex = 8;
-            Math8.Text = "8";
-            Math8.UseVisualStyleBackColor = true;
-            Math8.Click += NumberButtonClick;
-            // 
-            // Math9
-            // 
-            Math9.Font = new Font("Segoe UI", 12F);
-            Math9.Location = new Point(127, 3);
-            Math9.Name = "Math9";
-            Math9.Size = new Size(56, 45);
-            Math9.TabIndex = 9;
-            Math9.Text = "9";
-            Math9.UseVisualStyleBackColor = true;
-            Math9.Click += NumberButtonClick;
-            // 
-            // MathMultiply
-            // 
-            MathMultiply.Font = new Font("Segoe UI", 12F);
-            MathMultiply.Location = new Point(251, 3);
-            MathMultiply.Name = "MathMultiply";
-            MathMultiply.Size = new Size(56, 45);
-            MathMultiply.TabIndex = 10;
-            MathMultiply.Text = "X";
-            MathMultiply.UseVisualStyleBackColor = true;
-            MathMultiply.Click += MathOperatorHandler;
-            // 
-            // MathMinus
-            // 
-            MathMinus.Font = new Font("Segoe UI", 12F);
-            MathMinus.Location = new Point(251, 54);
-            MathMinus.Name = "MathMinus";
-            MathMinus.Size = new Size(56, 45);
-            MathMinus.TabIndex = 11;
-            MathMinus.Text = "-";
-            MathMinus.UseVisualStyleBackColor = true;
-            MathMinus.Click += MathOperatorHandler;
-            // 
-            // MathPlus
-            // 
-            MathPlus.Font = new Font("Segoe UI", 12F);
-            MathPlus.Location = new Point(251, 105);
-            MathPlus.Name = "MathPlus";
-            MathPlus.Size = new Size(56, 45);
-            MathPlus.TabIndex = 12;
-            MathPlus.Text = "+";
-            MathPlus.UseVisualStyleBackColor = true;
-            MathPlus.Click += MathOperatorHandler;
-            // 
-            // MathEquals
-            // 
-            MathEquals.Font = new Font("Segoe UI", 12F);
-            MathEquals.Location = new Point(251, 156);
-            MathEquals.Name = "MathEquals";
-            MathEquals.Size = new Size(56, 48);
-            MathEquals.TabIndex = 13;
-            MathEquals.Text = "=";
-            MathEquals.UseVisualStyleBackColor = true;
-            MathEquals.Click += MathEquals_Click;
-            // 
             // Math0
             // 
             Math0.Font = new Font("Segoe UI", 12F);
@@ -256,50 +191,6 @@
             Math0.Text = "0";
             Math0.UseVisualStyleBackColor = true;
             Math0.Click += NumberButtonClick;
-            // 
-            // MathClear
-            // 
-            MathClear.Font = new Font("Segoe UI", 12F);
-            MathClear.Location = new Point(189, 156);
-            MathClear.Name = "MathClear";
-            MathClear.Size = new Size(56, 48);
-            MathClear.TabIndex = 16;
-            MathClear.Text = "Clear";
-            MathClear.UseVisualStyleBackColor = true;
-            MathClear.Click += MathClear_Click;
-            // 
-            // MathDivide
-            // 
-            MathDivide.Font = new Font("Segoe UI", 12F);
-            MathDivide.Location = new Point(189, 3);
-            MathDivide.Name = "MathDivide";
-            MathDivide.Size = new Size(56, 45);
-            MathDivide.TabIndex = 17;
-            MathDivide.Text = "/";
-            MathDivide.UseVisualStyleBackColor = true;
-            MathDivide.Click += MathOperatorHandler;
-            // 
-            // MathBackspace
-            // 
-            MathBackspace.Font = new Font("Segoe UI", 12F);
-            MathBackspace.Location = new Point(127, 156);
-            MathBackspace.Name = "MathBackspace";
-            MathBackspace.Size = new Size(56, 48);
-            MathBackspace.TabIndex = 18;
-            MathBackspace.Text = "<--|";
-            MathBackspace.UseVisualStyleBackColor = true;
-            MathBackspace.Click += MathBackspace_Click;
-            // 
-            // HelpButton
-            // 
-            HelpButton.Font = new Font("Segoe UI", 12F);
-            HelpButton.Location = new Point(189, 105);
-            HelpButton.Name = "HelpButton";
-            HelpButton.Size = new Size(56, 45);
-            HelpButton.TabIndex = 19;
-            HelpButton.Text = "Help";
-            HelpButton.UseVisualStyleBackColor = true;
-            HelpButton.Click += HelpButton_Click;
             // 
             // MathDot
             // 
@@ -312,10 +203,120 @@
             MathDot.UseVisualStyleBackColor = true;
             MathDot.Click += MathDot_Click;
             // 
+            // Math9
+            // 
+            Math9.Font = new Font("Segoe UI", 12F);
+            Math9.Location = new Point(127, 3);
+            Math9.Name = "Math9";
+            Math9.Size = new Size(56, 45);
+            Math9.TabIndex = 9;
+            Math9.Text = "9";
+            Math9.UseVisualStyleBackColor = true;
+            Math9.Click += NumberButtonClick;
+            // 
+            // Math8
+            // 
+            Math8.Font = new Font("Segoe UI", 12F);
+            Math8.Location = new Point(65, 3);
+            Math8.Name = "Math8";
+            Math8.Size = new Size(56, 45);
+            Math8.TabIndex = 8;
+            Math8.Text = "8";
+            Math8.UseVisualStyleBackColor = true;
+            Math8.Click += NumberButtonClick;
+            // 
+            // Math7
+            // 
+            Math7.Font = new Font("Segoe UI", 12F);
+            Math7.Location = new Point(3, 3);
+            Math7.Name = "Math7";
+            Math7.Size = new Size(56, 45);
+            Math7.TabIndex = 7;
+            Math7.Text = "7";
+            Math7.UseVisualStyleBackColor = true;
+            Math7.Click += NumberButtonClick;
+            // 
+            // MathEquals
+            // 
+            MathEquals.Font = new Font("Segoe UI", 12F);
+            MathEquals.Location = new Point(251, 156);
+            MathEquals.Name = "MathEquals";
+            MathEquals.Size = new Size(56, 48);
+            MathEquals.TabIndex = 13;
+            MathEquals.Text = "=";
+            MathEquals.UseVisualStyleBackColor = true;
+            MathEquals.Click += MathEquals_Click;
+            // 
+            // MathPlus
+            // 
+            MathPlus.Font = new Font("Segoe UI", 12F);
+            MathPlus.Location = new Point(251, 105);
+            MathPlus.Name = "MathPlus";
+            MathPlus.Size = new Size(56, 45);
+            MathPlus.TabIndex = 12;
+            MathPlus.Text = "+";
+            MathPlus.UseVisualStyleBackColor = true;
+            MathPlus.Click += MathOperatorHandler;
+            // 
+            // MathMinus
+            // 
+            MathMinus.Font = new Font("Segoe UI", 12F);
+            MathMinus.Location = new Point(251, 54);
+            MathMinus.Name = "MathMinus";
+            MathMinus.Size = new Size(56, 45);
+            MathMinus.TabIndex = 11;
+            MathMinus.Text = "-";
+            MathMinus.UseVisualStyleBackColor = true;
+            MathMinus.Click += MathOperatorHandler;
+            // 
+            // MathMultiply
+            // 
+            MathMultiply.Font = new Font("Segoe UI", 12F);
+            MathMultiply.Location = new Point(251, 3);
+            MathMultiply.Name = "MathMultiply";
+            MathMultiply.Size = new Size(56, 45);
+            MathMultiply.TabIndex = 10;
+            MathMultiply.Text = "X";
+            MathMultiply.UseVisualStyleBackColor = true;
+            MathMultiply.Click += MathOperatorHandler;
+            // 
+            // MathDivide
+            // 
+            MathDivide.Font = new Font("Segoe UI", 12F);
+            MathDivide.Location = new Point(189, 3);
+            MathDivide.Name = "MathDivide";
+            MathDivide.Size = new Size(56, 45);
+            MathDivide.TabIndex = 17;
+            MathDivide.Text = "/";
+            MathDivide.UseVisualStyleBackColor = true;
+            MathDivide.Click += MathOperatorHandler;
+            // 
+            // MathClear
+            // 
+            MathClear.Font = new Font("Segoe UI", 12F);
+            MathClear.Location = new Point(189, 156);
+            MathClear.Name = "MathClear";
+            MathClear.Size = new Size(56, 48);
+            MathClear.TabIndex = 16;
+            MathClear.Text = "Clear";
+            MathClear.UseVisualStyleBackColor = true;
+            MathClear.Click += MathClear_Click;
+            // 
+            // MathPercent
+            // 
+            MathPercent.Location = new Point(189, 54);
+            MathPercent.Name = "MathPercent";
+            MathPercent.Size = new Size(56, 45);
+            MathPercent.TabIndex = 3;
+            MathPercent.Text = "%";
+            MathPercent.UseVisualStyleBackColor = true;
+            MathPercent.Click += MathPercent_Click;
+            // 
             // MathResult
             // 
             MathResult.AutoSize = true;
             MathResult.BorderStyle = BorderStyle.FixedSingle;
+            MathResult.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             MathResult.Location = new Point(12, 9);
             MathResult.MaximumSize = new Size(250, 30);
             MathResult.MinimumSize = new Size(250, 30);
