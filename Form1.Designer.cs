@@ -339,7 +339,7 @@
             Controls.Add(MathTypeLabel);
             Controls.Add(MathResult);
             Controls.Add(LayoutPanel);
-            Name = "Form1";
+            Name = "SimpleCalculator";
             Text = "Calculator - Made By Odegard";
             Load += Form1_Load;
             LayoutPanel.ResumeLayout(false);
