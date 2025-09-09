@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             LayoutPanel = new TableLayoutPanel();
             MathMinus = new Button();
             MathDivide = new Button();
@@ -37,7 +38,6 @@
             Math8 = new Button();
             Math9 = new Button();
             Math6 = new Button();
-            Math5 = new Button();
             Math4 = new Button();
             Math3 = new Button();
             Math2 = new Button();
@@ -49,6 +49,7 @@
             HelpButton = new Button();
             MathClear = new Button();
             MathPercent = new Button();
+            Math5 = new Button();
             MathResult = new Label();
             MathTypeLabel = new Label();
             LayoutPanel.SuspendLayout();
@@ -181,17 +182,6 @@
             Math6.UseVisualStyleBackColor = true;
             Math6.Click += NumberButtonClick;
             // 
-            // Math5
-            // 
-            Math5.Font = new Font("Segoe UI", 12F);
-            Math5.Location = new Point(82, 111);
-            Math5.Name = "Math5";
-            Math5.Size = new Size(73, 48);
-            Math5.TabIndex = 5;
-            Math5.Text = "5";
-            Math5.UseVisualStyleBackColor = true;
-            Math5.Click += NumberButtonClick;
-            // 
             // Math4
             // 
             Math4.Font = new Font("Segoe UI", 12F);
@@ -312,6 +302,17 @@
             MathPercent.UseVisualStyleBackColor = true;
             MathPercent.Click += MathPercent_Click;
             // 
+            // Math5
+            // 
+            Math5.Font = new Font("Segoe UI", 12F);
+            Math5.Location = new Point(82, 111);
+            Math5.Name = "Math5";
+            Math5.Size = new Size(73, 48);
+            Math5.TabIndex = 5;
+            Math5.Text = "5";
+            Math5.UseVisualStyleBackColor = true;
+            Math5.Click += NumberButtonClick;
+            // 
             // MathResult
             // 
             MathResult.AutoSize = true;
@@ -346,6 +347,7 @@
             Controls.Add(MathTypeLabel);
             Controls.Add(MathResult);
             Controls.Add(LayoutPanel);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MinimumSize = new Size(350, 300);
             Name = "Form1";
             Text = "Calculator - Made By Odegard";
