@@ -14,6 +14,6 @@ If the user selects another math type then it quickly does the first calculation
   
 It utilizes Switch for the math type.  
 
-## License
+## License/Copyright or whatever the pro's call it
 I dont care. Copy paste my code if you want even tho its probably really bad code because im a beginner and know barely anything.   
 If you do end up copying anyting then i wouldnt mind a credit.   
