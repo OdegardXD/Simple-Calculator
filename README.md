@@ -13,3 +13,7 @@ Then after the user enters the second number 2 things can happen. If the user cl
 If the user selects another math type then it quickly does the first calculation and then remembers the calculation as firstnumber then it sets the new operation as whatever the user selected.    
   
 It utilizes Switch for the math type.  
+
+## License
+I dont care. Copy paste my code if you want even tho its probably really bad code because im a beginner and know barely anything.   
+If you do end up copying anyting then i wouldnt mind a credit.   
