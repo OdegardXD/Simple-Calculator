@@ -49,11 +49,12 @@ namespace SimpleCalculator
 
         private void MathClear_Click(object sender, EventArgs e) // clear MathResult button
         {
-            if (MathResult.Text.Length > 0)  // checks if the mathresult is empty before proceeding
-            MathResult.Text = (""); // clears MathResult
-            operation = ""; // sets operaion to nothing aka the thing that remembers what was clicked like +, -, * or /
-            isOperationClicked = false; // sets isOperationClicked to false
-            MathTypeLabel.Text = ""; // clears the mathtypelabel
+            if (MathResult.Text.Length > 0) {  // checks if the mathresult is empty before proceeding
+                MathResult.Text = (""); // clears MathResult
+                operation = ""; // sets operaion to nothing aka the thing that remembers what was clicked like +, -, * or /
+                isOperationClicked = false; // sets isOperationClicked to false
+                MathTypeLabel.Text = ""; // clears the mathtypelabel
+            }
         }
 
         //
