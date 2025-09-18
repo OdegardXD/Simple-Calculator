@@ -1,5 +1,3 @@
-# Requires .NET 8.0 to run!
-
 # **Simple Calculator**  
 This is a calculator. Its made for a school project so its pretty basic and doesnt have anything special compared to a normal calculator.
 I probably wont be updating this or anything but eh it exists.  
